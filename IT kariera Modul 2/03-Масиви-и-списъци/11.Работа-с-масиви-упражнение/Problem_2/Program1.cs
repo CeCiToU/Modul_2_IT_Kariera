@@ -41,11 +41,17 @@ namespace ConsoleApp157
                     else if (command[0] == "Reverse")
                     {
                         Array.Reverse(arr);
+
+
                     }
-                    else if (command[0] == "Replace")
+                    else if (command[0] == "Replace" && n < arr.Length)
                     {
-                        n = n - 1;
                         arr[n] = command[2];
+                    }
+                    else if (n >= arr.Length)
+                    {
+                        Console.WriteLine("Invalid input!\nTry - END or try again!");
+
                     }
                     arr = arr.Where(x => x != " ").ToArray();
                     Console.WriteLine(string.Join(", ", arr));
@@ -55,7 +61,7 @@ namespace ConsoleApp157
                     Console.WriteLine("Invalid input!\n Try - END or try again!");
                 }
 
-            } 
+            }
 
 
         }

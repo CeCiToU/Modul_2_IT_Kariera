@@ -25,11 +25,11 @@ namespace ConsoleApp141
                 }
                 else if (command[0] == "Replace")
                 {
-                    Replace(arr[], int.Parse(command[1]), command[2]);
+                    Console.WriteLine(String.Join(", ", Replace(arr, int.Parse(command[1]), command[2])));
                 }
             }
         }
-        static string Replace(string[] array, int number, string word)
+        static string[] Replace(string[] array, int number, string word)
         {
             for (int i = 0; i< array.Length; i++)
             {
@@ -38,7 +38,7 @@ namespace ConsoleApp141
                     array[i] = word;
                 }
             }
-            return array[array.Length];
+            return array;
         }
 
     }
