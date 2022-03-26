@@ -43,9 +43,9 @@ class MagicNumbers
             br = 0;
         }
         Console.Write("Special words: ");
-        for (int i = 0; i < list.Count; i++)
+        for (int i = 0; i < special.Count; i++)
         {
-            if (i == list.Count - 1)
+            if (i == special.Count - 1)
             {
                 Console.Write(special[i]);
             }
@@ -56,9 +56,9 @@ class MagicNumbers
         }
         Console.WriteLine();
         Console.Write("Other words: ");
-        for (int i = 0; i < list.Count; i++)
+        for (int i = 0; i < other.Count; i++)
         {
-            if (i == list.Count - 1)
+            if (i == other.Count - 1)
             {
                 Console.Write(other[i]);
             }
