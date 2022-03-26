@@ -1,23 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 
-namespace ConsoleApp179
+namespace ConsoleApp193
 {
     class Program
     {
         static void Main(string[] args)
         {
-            List<string> array = Console.ReadLine().Split("|").ToList();
-            List<string> arr = new List<string>();
-            for(int i = array.Count; i > 0; i--)
+            List<string> nums = Console.ReadLine().Split("|").Where(x => x != " ").ToList();
+            for (int i = 0; i < nums.Count; i++)
             {
-                for (int j = 0; j < 10; j++)
-                {
-                    arr[i] = array[i][j].Where(array[j] != );
-                }
+                nums[i] = Reverse(nums[i]);
             }
+            string a = string.Join(" ", nums);
+            nums = a.Split(" ").Where(x => x != "" && x != null && x != " ").Reverse().ToList();
+            Console.WriteLine(string.Join(" ", nums));
         }
-
+        static string Reverse(string num1)
+        {
+            char[] charArray = num1.ToCharArray();
+            Array.Reverse(charArray);
+            return string.Join("", charArray);
+        }
     }
+    
 }
