@@ -2,57 +2,71 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace ConsoleApp204
+namespace ConsoleApp207
 {
     class Program
     {
         static void Main(string[] args)
         {
-            string word = Console.ReadLine();
+            string word = Console.ReadLine().ToLower();
+            string state1 = Console.ReadLine();
+            string state2 = Console.ReadLine();
+            if (word == "int")
+            {
+                int max = MaxInt(int.Parse(state1), int.Parse(state2));
+                Console.WriteLine(max);
+            }
+            else if (word == "char")
+            {
+                char max = MaxChar(char.Parse(state1), char.Parse(state2));
+                Console.WriteLine(max);
+            }
+            else if (word == "string")
+            {
+                string max = MaxString(state1, state2);
+                Console.WriteLine(max);
+            }
 
         }
-        static string PrintMax(string type, string state1, string state2)
+        static int MaxInt(int num, int num1)
         {
-            int maxNum = 0;
-            char maxChar = ' ';
-            string maxString = "";
-            if (type == "int")
+            int max = 0;
+            if (num1< num)
             {
-                int num1 = int.Parse(state1);
-                int num2 = int.Parse(state2);
-                maxNum = Math.Max(num1, num2);
-                return maxNum.ToString();
+                max = num;
             }
-            else if (type == "char")
+            else
             {
-                char char1 = char.Parse(state1);
-                char char2 = char.Parse(state2);
-                if (char1 < char2)
-                {
-                    maxChar = char2;
-                }
-                else
-                {
-                    maxChar = char1;
-                }
-                
-                return maxChar.ToString();
+                max = num1;
             }
-            else if (type == "string")
-            {
-                if (state1.CompareTo(state2) >= 0)
-                {
-                    maxString = state2;
-                    
-                }
-                else
-                {
-                    maxString = state1;
-                     
-                }
-                return maxString.ToString();
-            }
-
+            return max;
         }
+        static char MaxChar(char letter, char letter1)
+        {
+            char max = 'a';
+            if (letter < letter1)
+            {
+                max = letter1;
+            }
+            else
+            {
+                max = letter;
+            }
+            return max;
+        }
+        static string MaxString(string word, string word1)
+        {
+            string max = "";
+            if (word.Length < word1.Length)
+            {
+                max = word1;
+            }
+            else
+            {
+                max = word;
+            }
+            return max;
+        }
+        
     }
 }
