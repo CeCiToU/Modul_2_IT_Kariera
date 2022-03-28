@@ -8,21 +8,16 @@ namespace ConsoleApp193
     {
         static void Main(string[] args)
         {
-            List<string> nums = Console.ReadLine().Split("|").Where(x => x != " ").ToList();
-            for (int i = 0; i < nums.Count; i++)
+            //1 2 3 |4 5 6 |  7  8
+            List<string> nums = Console.ReadLine().Split("|").ToList();
+            List<string> result = new List<string>();
+            for (int i = nums.Count - 1; i >= 0; i--)
             {
-                nums[i] = Reverse(nums[i]);
+                List<string> currentNums = nums[i].Split(" ").Where(x => x != "").ToList();
+                result.AddRange(currentNums);
             }
-            string a = string.Join(" ", nums);
-            nums = a.Split(" ").Where(x => x != "" && x != null && x != " ").Reverse().ToList();
-            Console.WriteLine(string.Join(" ", nums));
-        }
-        static string Reverse(string num1)
-        {
-            char[] charArray = num1.ToCharArray();
-            Array.Reverse(charArray);
-            return string.Join("", charArray);
+            Console.WriteLine(string.Join(" ", result));
         }
     }
-    
+
 }
