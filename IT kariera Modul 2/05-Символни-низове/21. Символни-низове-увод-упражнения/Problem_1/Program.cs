@@ -8,68 +8,35 @@ namespace ConsoleApp211
     {
         static void Main(string[] args)
         {
-            int[] arr = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
-            List<int> result = new List<int>();
-
-            if(arr[0] == 2)
+            int[] commands = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+            int system = commands[0];
+            int number = commands[1];
+            int result = 0;
+            List<int> arr = result.ToString().Split("").Select(int.Parse).ToList();
+            for (int i = 0; i < number; i++)
             {
-                for (int i = 0; arr[1] > 0; i++)
+                for (int j = 0; j < arr.Count; j++)
                 {
-                    int currentNum = arr[1] % 2;
-                    if (currentNum == 0)
+
+                    string test = system.ToString();
+                    if (arr[j].ToString() == test)
                     {
-                        result.Add(0);
+                        arr[j] = 0;
+                        try
+                        {
+                            arr[j + 1]++;
+                        }
+                        catch
+                        {
+                            arr.Add(1);
+                        }
                     }
-                    else
-                    {
-                        result.Add(1);
-                    }
-                    arr[1] /= 2;
                 }
-                
-                
-            } 
-            else if (arr[0] == 3)
-            {
-                for (int i = 0; arr[1] > 0; i++)
-                {
-                    int currentNum = arr[1] % 3;
-                    result.Add(currentNum);
-                    arr[1] /= 3;
-                }
+                arr[0]++;
             }
-            else if (arr[0] == 4)
-            {
-                
-            }
-            else if (arr[0] == 5)
-            {
-
-            }
-            else if (arr[0] == 6)
-            {
-
-            }
-            else if (arr[0] == 7)
-            {
-
-            }
-            else if (arr[0] == 8)
-            {
-                int currentNum = arr[1] % 8;
-                result.Add(currentNum);
-                arr[1] /= 8;
-            }
-            else if (arr[0] == 9)
-            {
-
-            }
-            else if (arr[0] == 10)
-            {
-
-            }
-            result.Reverse();
-            Console.WriteLine(string.Join("",result));
+            arr.Reverse();
+            Console.WriteLine(string.Join("", arr));
         }
+        
     }
 }
