@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 
-namespace ConsoleApp211
+namespace ConsoleApp1
 {
     class Program
     {
@@ -12,14 +12,14 @@ namespace ConsoleApp211
             int system = commands[0];
             int number = commands[1];
             int result = 0;
-            List<int> arr = result.ToString().Split("").Select(int.Parse).ToList();
+            List<int> arr = new List<int>();
+            arr.Add(result);
             for (int i = 0; i < number; i++)
             {
+                arr[0]++;
                 for (int j = 0; j < arr.Count; j++)
                 {
-
-                    string test = system.ToString();
-                    if (arr[j].ToString() == test)
+                    if (arr[j] == system)
                     {
                         arr[j] = 0;
                         try
@@ -32,11 +32,9 @@ namespace ConsoleApp211
                         }
                     }
                 }
-                arr[0]++;
             }
             arr.Reverse();
             Console.WriteLine(string.Join("", arr));
         }
-        
     }
 }
