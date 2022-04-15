@@ -10,11 +10,11 @@ namespace ConsoleApp260
             
             for (int i = 0; i < amount; i++)
             {
-                double totalLength = double.Parse(Console.ReadLine());
-                double totalWidth = double.Parse(Console.ReadLine());
-                double wingLength = double.Parse(Console.ReadLine());
-                double totalYears = (totalLength * totalLength) * (totalWidth + (2 * wingLength));
-                switch (totalWidth % 1)
+                decimal totalLength = decimal.Parse(Console.ReadLine());
+                decimal totalWidth = decimal.Parse(Console.ReadLine());
+                decimal wingLength = decimal.Parse(Console.ReadLine());
+                decimal totalYears = (totalLength * totalLength) * (totalWidth + (2 * wingLength));
+                switch ((int)totalWidth % 1)
                 {
                     case 0:
                         {
